@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
     entry: './assets/js/script.js', // provides relative path for client's code
@@ -11,6 +12,9 @@ module.exports = {
         new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery"
+        }),
+        new BundleAnalyzerPlugin({
+            analyzerMode: "static"
         }),
     ],
     mode: 'development' //provide the mode in which we want webpack to run (default is production mode)
