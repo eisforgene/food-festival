@@ -3,10 +3,15 @@ const webpack = require('webpack');
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
-    entry: './assets/js/script.js', // provides relative path for client's code
+    entry: {
+        app: "./assets/js/script.js", // provides relative path for client's code
+        events: "./assets/js/events.js",
+        schedule: "./assets/js/schedule.js",
+        tickets: "./assets/js/tickets.js"
+    },    
     output: { // take entry point provided, bundle the code, and output the bundled code to a specified folder
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'main.bundle.js'
+        filename: "[name].bundle.js",
+        path: __dirname + "/dist"
     },
     plugins: [
         new webpack.ProvidePlugin({
